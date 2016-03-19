@@ -1,7 +1,26 @@
 //IMPORTAR AS VARIÁVEIS SASS//
 @import "variaveis";
 
+//DIV QUE CONTÉM O LOGO DA VALEMOBI//
+.logo{
 
-#mario{
-  color: $valeDarkOrange;
+  img{
+    height: 5em;
+  }
+}
+
+//<nav> QUE CONTÉM DOIS BOTÕES: PARA ADICIONAR UMA NAVEGAÇÃO E PARA LISTAS..
+// TODAS AS NEGOCIAÇÕES
+.nav{
+
+  button{
+    padding: 1.2em;
+    margin: 1em 0;
+    font-size: 1.3em;
+  }
+
+  //ADICIONAR UMA MARGEM 'TOP' MAIOR SOMENTE NO PRIMEIRO BOTÃO//
+  div:first-child button{
+    margin-top: 2em;
+  }
 }

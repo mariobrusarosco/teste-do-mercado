@@ -1,4 +1,11 @@
-#mario {
-  color: #d37f0c; }
+.logo img {
+  height: 5em; }
+
+.nav button {
+  padding: 1.2em;
+  margin: 1em 0;
+  font-size: 1.3em; }
+.nav div:first-child button {
+  margin-top: 2em; }
 
 /*# sourceMappingURL=teste-de-mercado.css.map */
