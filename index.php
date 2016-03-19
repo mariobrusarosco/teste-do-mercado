@@ -34,7 +34,52 @@
             <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
             <h4 class='modal-title' id='myModalLabel'>Nova Negociação</h4>
           </div>
+
           <div class='modal-body'>
+              <form class="" action="index.html" method="post">
+
+                <div class="form-group">
+                  <label for="codigo_mercadoria_form">Código Mercadoria</label>
+                  <input id="codigo_mercadoria_form" type="number" class="form-control" placeholder="Digite o Código da Mercadoria" required="required">
+                </div>
+
+                <div class="form-group">
+                  <label for="tipo_mercadoria_form">Tipo Mercadoria</label>
+                  <select id="tipo_mercadoria_form" type="number" class="form-control">
+                    <option class="">Tipo 01</option>
+                    <option class="">Tipo 02</option>
+                    <option class="">Tipo 03</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="nome_mercadoria_form">Nome</label>
+                  <input id="nome_mercadoria_form" type="text" class="form-control" placeholder="Digite o Nome da Mercadoria">
+                </div>
+
+                <div class="form-group">
+                  <label for="qtd_mercadoria_form">Quantidade</label>
+                  <input id="qtd_mercadoria_form" type="number" class="form-control" placeholder="Digite a Quantidade da Mercadoria">
+                </div>
+
+                <div class="form-group">
+                  <label for="preco_mercadoria_form">Preço</label>
+                  <div class="input-group">
+                    <div class="input-group-addon">R$</div>
+                    <input id="preco_mercadoria_form" type="number" step="0.01" class="form-control" placeholder="Preço em Reais">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="tipo_negocio_form">Tipo Negócio</label>
+                  <select id="tipo_negocio_form" type="number" class="form-control">
+                    <option class="">Negócio 01</option>
+                    <option class="">Negócio 02</option>
+                    <option class="">Negócio 03</option>
+                  </select>
+                </div>
+
+              </form>
 
           </div>
           <div class='modal-footer'>
