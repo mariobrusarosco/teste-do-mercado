@@ -1,6 +1,18 @@
 //IMPORTAR AS VARIÁVEIS SASS//
 @import "variaveis";
 
+// ****  ELEMENTOS GLOBAIS ***** //
+
+  //MODAL USADO PARA ALERTAS//
+  .modal_alertas{
+
+    .modal-header,.modal-footer{ //RETIRAR AS BORDAS DE CABEÇALHO E RODAPÉ DESSE MODAL//
+      border: none;
+    }
+  }
+
+// ****  ELEMENTOS GLOBAIS ***** //
+
 //DIV QUE CONTÉM O LOGO DA VALEMOBI//
 .logo{
 

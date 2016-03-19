@@ -1,3 +1,6 @@
+.modal_alertas .modal-header, .modal_alertas .modal-footer {
+  border: none; }
+
 .logo img {
   height: 5em; }
 
