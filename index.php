@@ -11,7 +11,6 @@
 <div class="container">
   <div class="row">
       <button class="btn btn-primary">My Row</button>
-      <p id="mario">mario</p>  
   </div>
 </div>
 
