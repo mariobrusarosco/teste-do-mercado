@@ -10,7 +10,7 @@
 
 <div class="container">
   <div class="row">
-      <button class="btn btn-primary">My Row</button>
+      <button id="mario" class="btn btn-primary">My Row</button>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,MAAM;EACJ,KAAK,EAAE,MAAM",
-"sources": ["teste-de-mercado.scss"],
+"mappings": "AAIA,MAAM;EACJ,KAAK,ECJU,OAAe",
+"sources": ["teste-de-mercado.scss","variaveis.scss"],
 "names": [],
 "file": "teste-de-mercado.css"
 }
