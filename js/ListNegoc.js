@@ -20,13 +20,13 @@ var ListNegoc = {
                       $("main").append($areaNegoc);         //INSERE NO DOM//
 
                       $.ajax("./helpers/listar-negoc.php")  //REALIZA UMA CHAMADA AJAX//
-                        .done(function(data){               //QUANDO ELA RETORNA OS DADOS...//
+                        .done(function(data){               //APÓS A CHAMADA TERMINADA...//
                           myJSON = JSON.parse(data);        //CONVERTE OS DADOS (JSON) RETORNADOS PARA UM OBJETO JAVASCRIPT//
                           if(myJSON['status'] === "erro"){  //VERIFICA SE O STATUS DA CONSULTA É DO TIPO 'erro'//
                             console.log("Houve um erro na consulta"); //POR ENQUANTO INFORMA O ERRO NO CONSOLE//
                           }else{
                             $areaNegoc.append(ListNegoc.cabecalhoLista);
-                            var $tbody = $("#tabela_negoc").find("tbody"); //ARMAZENA O ELEMENTO <tbody> EM UM ELEMENTO JQUERY//
+                            var $tbody = $("#tabela_negoc").find("tbody") //ARMAZENA O ELEMENTO <tbody> EM UM ELEMENTO JQUERY//
                                 .empty();                                 //REMOVE O CONTEÚDO ANTERIOR DA TABELA//
 
                             //ITERA A PROPRIEDADE msg DO OBJETO JSON//
