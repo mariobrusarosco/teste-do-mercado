@@ -31,8 +31,8 @@ final class DB{
       //   echo "Error: " . $error->getMessage();
       //   // print_r($iniConfig);
       // }
-      // $myPDO = new PDO("mysql:host=localhost;dbname=valemobi","mario","brusarosco");             //LOCAL//
-      $myPDO = new PDO("mysql:host=localhost;dbname=cl58-valemobi","cl58-valemobi","ft^!yYc9Y"); //REMOTE//
+      $myPDO = new PDO("mysql:host=localhost;dbname=valemobi","mario","brusarosco");             //LOCAL//
+      // $myPDO = new PDO("mysql:host=localhost;dbname=cl58-valemobi","cl58-valemobi","ft^!yYc9Y"); //REMOTE//
       // try{
           //CREATE A PDO OBJECT WITHOUT A PORT VALUE//
           // if(!empty($dbPort)){
@@ -42,7 +42,7 @@ final class DB{
             // $myPDO = new PDO("mysql:host={$dbHost};dbname={$dbName}","{$dbUser}","{$dbPass}");
           // }
         //SET SOME PDO PROPERTIES E RETURN A INSTANCE OF A PDO OBJECT//
-        $myPDO->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $myPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       // }
         return $myPDO;
       // catch(PDOException $pdoError){
