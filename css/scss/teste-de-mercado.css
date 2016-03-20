@@ -1,14 +1,11 @@
 .modal_alertas .modal-header, .modal_alertas .modal-footer {
   border: none; }
 
-.logo img {
-  height: 5em; }
-
-.nav button {
-  padding: 1.2em;
-  margin: 1em 0;
-  font-size: 1.3em; }
-.nav div:first-child button {
-  margin-top: 2em; }
+header .logo img {
+  padding-top: 0.5em; }
+header .nav div {
+  margin-top: 1em; }
+header .nav button {
+  margin-top: 1em; }
 
 /*# sourceMappingURL=teste-de-mercado.css.map */

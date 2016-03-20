@@ -10,18 +10,17 @@
 
 <main class="container">
 
-  <header>
-    <div id="logo_vale_mobi" class="logo row">
-      <div class="col-xs-12 col-lg-6">
+  <header class="row">
+
+      <div id="logo_vale_mobi" class="logo col-xs-6 col-sm-4 col-md-3 col-lg-3">
         <img class="img-responsive" src="img/logo.png" title="ValeMobi" alt="ValeMobi">
       </div>
-    </div>
 
-    <nav id="barra_navegacao" class="nav row">
-      <div class="col-xs-12">
+    <nav id="barra_navegacao" class="nav col-xs-6 col-sm-8 col-md-9">
+      <div class=" col-sm-6">
         <button id="nova_negoc_btn" class="btn btn-info btn-block center-block" type="button" data-toggle="modal" data-target="#modal_nova_negoc">Nova Negociação</button>
       </div>
-      <div class="col-xs-12">
+      <div class=" col-sm-6">
         <button id="lista_negoc_btn" class="btn btn-primary btn-block center-block" type="button" data-toggle="modal" data-target="#myModal">Listar Negocições</button>
       </div>
     </nav>
@@ -109,6 +108,8 @@
     </div>
   </div>
 
+
+  
 
 </main>
 

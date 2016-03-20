@@ -1,20 +1,17 @@
 var ListNegoc = {
 
-  carregarLista   :  function(){
-                      //ALTERAR AS CLASSES DE CSS DO CABEÇALHO DA PÁGINA//
-                      var $cabecalho = $("header");                                             //CABEÇALHO DA PÁGINA//
-                                logo = $cabecalho.children("#logo_vale_mobi").children("div"),   //<div> CONTENDO O LOGO//
-                            barraNav = $cabecalho.children("nav"),               //<nav> BARRA DE NAVEGAÇÃO//
-                        btnNovaNegoc = barraNav.find("div:first-child"),   //<div> CONTENDO O BOTÃO DE NOVA NEGOCIAÇÃO//
-                      //  btnListNegoc = ;                                   //<div> CONTENDO O  BOTÃO DE LISTAGEM DE NEGOCIAÇÕES//
-                      $cabecalho.find("#logo_vale_mobi div,nav div");
+  carregarLista    : function(){
+                      //SE JÁ EXISTIR O CONTAINER PARA A LISTA USE-O, SENÃO CRIE UM NOVO//
+                      var $areaNegoc = $("main").find("#area_negoc").length ? $("main").find("#area_negoc") : $("<section id='area_negoc' class='row table-responsive'></section>");
 
-                      console.log($cabecalho.find("#logo_vale_mobi div,nav div"));
+                      $("main").append($areaNegoc); //INSIRA NO DOM//
 
-                      //INSERIR A TABELA DE NEGOCIAÇÕES EMBAIXO DA BARRA DE NAVEGAÇÃO//
-                    },
+                      $areaNegoc.load("./includes/resultados.html");
+
+                        console.log("lista");
+                      },
 
    execHandlers    : function(){
-                      $("main").on("click","#lista_negoc_btn",ListNegoc.carregarLista);
+                      $("main").on("click","#lista_negoc_btn",this.carregarLista);
                     }
 }
