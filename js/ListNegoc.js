@@ -27,6 +27,7 @@ var ListNegoc = {
                           }else{
                             $areaNegoc.append(ListNegoc.cabecalhoLista);
                             var $tbody = $("#tabela_negoc").find("tbody"); //ARMAZENA O ELEMENTO <tbody> EM UM ELEMENTO JQUERY//
+                                .empty();                                 //REMOVE O CONTEÚDO ANTERIOR DA TABELA//
 
                             //ITERA A PROPRIEDADE msg DO OBJETO JSON//
                             for(var entrada in Object.keys(myJSON.msg)){
