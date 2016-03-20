@@ -5,6 +5,7 @@ class ConditionSQL extends FilterSQL{
   protected $operator;
   protected $value;
   public    $strCondition;
+
     function __construct($field,$operator,$value,$booleanOperator = null){
       $this->field     = $field;
       $this->operator  = $operator;
@@ -12,6 +13,7 @@ class ConditionSQL extends FilterSQL{
       ($booleanOperator !== null) ? $this->setBoolOp($booleanOperator) : $this->booleanOperator = null;
       return $this;
     }
+    
     function finishCondition(){
       //IF A BOOLEAN OPERATOR IS SET...//
       if($this->booleanOperator !== null){
@@ -22,6 +24,7 @@ class ConditionSQL extends FilterSQL{
         return $this->strCondition = "{$this->field} {$this->operator} {$this->value}";
       }
     }
+    
     function __tostring(){
         return "{$this->finishCondition()}";
     }

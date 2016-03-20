@@ -31,8 +31,8 @@ final class DB{
       //   echo "Error: " . $error->getMessage();
       //   // print_r($iniConfig);
       // }
-      // $myPDO = new PDO("mysql:host=localhost;dbname=syntaxes","mario","brusarosco");             //LOCAL//
-      $myPDO = new PDO("mysql:host=localhost;dbname=cl58-syntaxes","cl58-syntaxes","Ek!VkgsGk"); //REMOTE//
+      // $myPDO = new PDO("mysql:host=localhost;dbname=valemobi","mario","brusarosco");             //LOCAL//
+      $myPDO = new PDO("mysql:host=localhost;dbname=cl58-valemobi","cl58-valemobi","ft^!yYc9Y"); //REMOTE//
       // try{
           //CREATE A PDO OBJECT WITHOUT A PORT VALUE//
           // if(!empty($dbPort)){

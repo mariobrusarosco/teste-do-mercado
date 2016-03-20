@@ -7,6 +7,7 @@ class InsertSQL extends StmtSQL{
   3) Array  ==> [ [val_1,val_2] , [val_3,val_4] , [...] , ... ]
 */
   private $insertFields;
+  
   function __construct($table, $insertFields,$values){
     $this->table          = $table;
     $this->insertFields   = $insertFields;
