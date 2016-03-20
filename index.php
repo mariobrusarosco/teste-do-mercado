@@ -73,9 +73,8 @@
               <div class="form-group">
                 <label for="tipo_negocio_form">Tipo Negócio</label>
                 <select id="tipo_negocio_form" name="tipo_negocio" type="number" class="form-control" required="required">
-                  <option class="">Negócio 01</option>
-                  <option class="">Negócio 02</option>
-                  <option class="">Negócio 03</option>
+                  <option class="">Compra</option>
+                  <option class="">Venda</option>
                 </select>
               </div>
 
