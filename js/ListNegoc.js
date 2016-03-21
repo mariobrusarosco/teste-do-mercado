@@ -74,6 +74,6 @@ var ListNegoc = {
    execHandlers    : function(){
                       $("main").on("click","#lista_negoc_btn",this.carregarLista);
                       // CARREGA A LISTA COM TODAS AS NEGOCIAÇÕES AUTOMATICAMENTE QUANDO A PÁGINA INICIAL É CARREGADA (EVENTO ONLOAD||LOAD)//
-                      this.carregarLista;
+                      this.carregarLista();
                     }
 }
