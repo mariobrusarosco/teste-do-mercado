@@ -39,12 +39,12 @@
             <form id="form_nova_negoc"class="" action="" method="">
 
               <div class="form-group">
-                <label for="codigo_mercadoria_form">Código Mercadoria</label>
+                <label data-name="Código Mercadoria" for="codigo_mercadoria_form">Código Mercadoria</label>
                 <input id="codigo_mercadoria_form" name="codigo_mercadoria" type="number" class="form-control" placeholder="Digite o Código da Mercadoria" required="required">
               </div>
 
               <div class="form-group">
-                <label for="tipo_mercadoria_form">Tipo Mercadoria</label>
+                <label data-name="Tipo Mercadoria" for="tipo_mercadoria_form">Tipo Mercadoria</label>
                 <select id="tipo_mercadoria_form" name="tipo_mercadoria" type="number" class="form-control" required="required">
                   <option class="" value="tipo1" selected>Tipo 01</option>
                   <option class="" value="tipo2">Tipo 02</option>
@@ -53,25 +53,25 @@
               </div>
 
               <div class="form-group">
-                <label for="nome_mercadoria_form">Nome</label>
+                <label data-name="Nome" for="nome_mercadoria_form">Nome</label>
                 <input id="nome_mercadoria_form" name="nome_mercadoria" type="text" class="form-control" placeholder="Digite o Nome da Mercadoria" required="required">
               </div>
 
               <div class="form-group">
-                <label for="qtd_mercadoria_form">Quantidade</label>
+                <label data-name="Quantidade" for="qtd_mercadoria_form">Quantidade</label>
                 <input id="qtd_mercadoria_form" name="qtd_mercadoria" type="number" class="form-control" placeholder="Digite a Quantidade da Mercadoria" required="required">
               </div>
 
               <div class="form-group">
-                <label for="preco_mercadoria_form">Preço</label>
+                <label data-name="Preço" for="preco_mercadoria_form">Preço</label>
                 <div class="input-group">
                   <div class="input-group-addon">R$</div>
-                  <input id="preco_mercadoria_form" name="preco_mercadoria" type="number" step="0.01" class="form-control" placeholder="Preço em Reais" required="required">
+                  <input id="preco_mercadoria_form" name="preco_mercadoria" type="number" step="0.01" maxlength="10" class="form-control" placeholder="Preço em Reais" required="required">
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="tipo_negocio_form">Tipo Negócio</label>
+                <label data-name="Tipo Negócio" for="tipo_negocio_form">Tipo Negócio</label>
                 <select id="tipo_negocio_form" name="tipo_negocio" type="number" class="form-control" required="required">
                   <option class="">Compra</option>
                   <option class="">Venda</option>
@@ -98,7 +98,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
-          <div class="alert alert-success text-center">Negociação Inserida com Sucesso</div>
+
         </div>
         <div class="modal-footer">
 
