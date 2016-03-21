@@ -146,7 +146,7 @@ var NovaNegoc = {
 
                             $modal.modal("hide");                  //ESCONDE O MODAL DE NOVA NEGOCIAÇÃO PARA EXIBIR UMA MENSAGEM DE SUCESSO AO USUÁRIO//
                             $modalAlertas.modal("show");           //EXIBE O MODAL DE ALERTAS AVISANDO QUE HOUVE SUCESSO NA INSERÇÃO//
-                            // $(".modal-backdrop").remove();         //ESCONDE A CAMDA PRETA (OVERLAY) DE FUNDO//
+                            ListNegoc.carregarLista();             //APÓS SALVAR UMA NOVA NEGOCIAÇÃO... CARREGUE A LISTA COM TODAS AS ANTERIORES E A NOVA//
                     }//FIM DE 'else'//
                   },
   execHandlers  : function(){

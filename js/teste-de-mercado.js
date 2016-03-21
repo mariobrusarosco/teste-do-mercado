@@ -7,5 +7,6 @@ window.onload = function(){
   NovaNegoc.execHandlers();
   //PREPARA TODAS AS CAPTURAS DE EVENTOS REFERENTE Á LISTAGEM DE NEGOCIAÇÕES//
   ListNegoc.execHandlers();
-
+  // CARREGA A LISTA COM TODAS AS NEGOCIAÇÕES AUTOMATICAMENTE QUANDO A PÁGINA INICIAL É CARREGADA//
+  ListNegoc.carregarLista();
 }
