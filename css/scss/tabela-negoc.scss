@@ -1,0 +1,36 @@
+#tabela_negoc{
+    color: rgb(255,255,255);
+
+  thead{
+
+    margin-top: 1em;
+
+    tr{  //SELECIONA A LINHA DE CABEÇALHO DA TABELA//
+      background: $valeDarkOrange;
+
+    }
+  }
+
+  tbody{
+
+    tr{
+
+      transition: all ease 300ms; //TODAS AS TRANSIÇÕES DAS PROPRIEDADES DESSE <tr> ACONTECERÃO COM ESSES VALORES //
+
+      &:nth-child(2n+1){  //SELECIONA TODAS AS LINHAS ÍMPARES DA TABELA - CONTANDO <tr> A PARTIR DE <tbody>//
+        background: $valeBlack;
+      }
+
+      &:nth-child(2n+0){  //SELECIONA TODAS AS LINHAS PARES DA TABELA - CONTANDO <tr> A PARTIR DE <tbody>//
+        background: lightgray;
+        color: black;
+      }
+
+      &:hover{
+        color: $valeLightOrange;
+      }
+
+    }
+  }
+
+}

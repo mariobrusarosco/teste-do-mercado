@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACA,WAAW;EACT,UAAU,EAAE,GAAG;EAGf,WAAW,EAAE,KAAK",
+"sources": ["area-negoc.scss"],
+"names": [],
+"file": "area-negoc.css"
+}

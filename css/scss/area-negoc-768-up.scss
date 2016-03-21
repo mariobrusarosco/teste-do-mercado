@@ -1,0 +1,10 @@
+@media SCREEN AND (min-width:769px){
+
+  //<section> QUE GUARDARÁ A TABELA COM A LISTA DAS NEGOCIAÇÕES//
+  #area_negoc{
+    //ESSA MARGEM ESQUERDA SERVIA PARA RESOLUÇÕES DE ATÉ 768px.
+    //AGORA ELA SERÁ ANULADA
+    margin-left: 0em;
+  }
+
+}

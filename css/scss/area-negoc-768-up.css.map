@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,oCAAmC;EAGjC,WAAW;IAGT,WAAW,EAAE,GAAG",
+"sources": ["area-negoc-768-up.scss"],
+"names": [],
+"file": "area-negoc-768-up.css"
+}

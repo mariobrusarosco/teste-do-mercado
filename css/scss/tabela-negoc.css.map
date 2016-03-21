@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEE,mBAAK;EAEH,UAAU,EAAE,GAAG;EAEf,sBAAE;IACA,UAAU,EAAE,MAAM;AAMpB,sCAAkB;EAChB,UAAU,EAAE,GAAG",
+"sources": ["tabela-negoc.scss"],
+"names": [],
+"file": "tabela-negoc.css"
+}

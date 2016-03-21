@@ -14,4 +14,27 @@ header .nav button {
   margin-bottom: 0.7em;
   padding: 0.85em; }
 
+#area_negoc {
+  margin-top: 1em;
+  margin-left: 0.2em; }
+
+@media SCREEN and (min-width: 769px) {
+  #area_negoc {
+    margin-left: 0em; } }
+#tabela_negoc {
+  color: white; }
+  #tabela_negoc thead {
+    margin-top: 1em; }
+    #tabela_negoc thead tr {
+      background: #d37f0c; }
+  #tabela_negoc tbody tr {
+    transition: all ease 300ms; }
+    #tabela_negoc tbody tr:nth-child(2n+1) {
+      background: #4f504f; }
+    #tabela_negoc tbody tr:nth-child(2n+0) {
+      background: lightgray;
+      color: black; }
+    #tabela_negoc tbody tr:hover {
+      color: #ff6f02; }
+
 /*# sourceMappingURL=teste-de-mercado.css.map */
