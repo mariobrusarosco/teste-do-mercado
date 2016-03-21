@@ -95,6 +95,8 @@ var NovaNegoc = {
                           // VERIFICA SE O CAMPO ESTÁ VAZIO //
                           if(that.campoVazio(valor)){
                             msgRetorno   = "<p>Por favor, preencha o campo \"" + nomeEtiqu + "\".</p>"; //EXPLICA O MOTIVO DE ERRO//
+                            // SE O CAMPO FOR 'CÓDIGO DA MERCADORIA','QUANTIDADE' OU 'PREÇO'... INSERE MAIS TEXTO NO ALERTA//
+                            if(nomeAtrib === "codigo_mercadoria" || nomeAtrib === "qtd_mercadoria" || nomeAtrib === "preco_mercadoria") msgRetorno += "<p>Insira somente números</p>";
                             dadosValidos = false;                                                       //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
                             return false;                                                               //ENCERRA A FUNÇÃO CALLBACK DE '$form.find(".form-control").each//
                           }

@@ -36,7 +36,7 @@
         </div>
 
         <div class='modal-body'>
-            <form id="form_nova_negoc"class="" action="" method="">
+            <form id="form_nova_negoc" class="" action="" method="">
 
               <div class="form-group">
                 <label data-name="Código Mercadoria" for="codigo_mercadoria_form">Código Mercadoria</label>
