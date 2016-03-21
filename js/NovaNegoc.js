@@ -60,6 +60,7 @@ var NovaNegoc = {
 
                           case "qtd_mercadoria":
                             if(valor.length > 5)return [false,"5",valor.length];
+                            //AQUI AINDA DARIA PARA VERIFICAR O VALOR MÁXIMO PERMITDO PELO MYSQL, QUANDO SÓ ACEITA NÚMEROS POSITIVOS(UNSIGNED) PARA UM CAMPO 'MEDIUMINT' => 16777215//
                             break;
                         }
                         return [true];
