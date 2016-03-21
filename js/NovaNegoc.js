@@ -64,17 +64,17 @@ var NovaNegoc = {
                                   //===> POR CAUSA DA ESTRUTURA HTML DESSE CAMPO, NÃO EXISTE UMA <label> ANTES DELE. ENTÃO É PRECISO SUBIR PARA SEU ANCESTRAL <div class="input-group"> E DEPOIS BUSCAR A <label>//
 
 
-                            //*** VERIFICA SE OS CAMPOS EM QUE SÓ SÃO ACEITOS NÚMEROS ESTÃO REALMENTE COM NÚMEROS ***//
-                            //CAMPOS:  'CÓDIGO DA MERCADORIA', 'QUANTIDADE DA MERCADORIA', 'PREÇO DA MERCADORIA'//
-                            if(nomeAtrib === "codigo_mercadoria" || nomeAtrib === "qtd_mercadoria" || nomeAtrib === "preco_mercadoria"){
-                              // if(!$.isNumeric(valor)){                 //======> SOMENTE COM jQuery//
-                              if(!that.valorNumerico(valor)){             //======> SOMENTE COM JAVASCRIPT//
-                                console.log("aqui");
-                                dadosValidos = false;                                                                           //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
-                                msgRetorno   = "<p>Por favor, preencha o campo \"" + nomeEtiqu + "\" somente com números.</p>"; //EXPLICA O MOTIVO DE ERRO//
-                                return false;                                                                                   // ENCERRA O CÓDIGO//
-                              }
+                          //*** VERIFICA SE OS CAMPOS EM QUE SÓ SÃO ACEITOS NÚMEROS ESTÃO REALMENTE COM NÚMEROS ***//
+                          //CAMPOS:  'CÓDIGO DA MERCADORIA', 'QUANTIDADE DA MERCADORIA', 'PREÇO DA MERCADORIA'//
+                          if(nomeAtrib === "codigo_mercadoria" || nomeAtrib === "qtd_mercadoria" || nomeAtrib === "preco_mercadoria"){
+                            // if(!$.isNumeric(valor)){                 //======> SOMENTE COM jQuery//
+                            if(!that.valorNumerico(valor)){             //======> SOMENTE COM JAVASCRIPT//
+                              console.log("aqui");
+                              dadosValidos = false;                                                                           //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
+                              msgRetorno   = "<p>Por favor, preencha o campo \"" + nomeEtiqu + "\" somente com números.</p>"; //EXPLICA O MOTIVO DE ERRO//
+                              return false;                                                                                   // ENCERRA O CÓDIGO//
                             }
+                          }
 
                            //*** SE ALGUM CAMPO ESTIVER VAZIO***//
                             // if(NovaNegoc.valorVazio(valor)){ ======> //CASO PREFIRA USAR O NOME INTEIRO DA 'CLASSE'//
