@@ -1,6 +1,6 @@
 <?php
 abstract class StmtSQL{
-  
+
   protected $tables;
   protected $fields;
   protected $values;

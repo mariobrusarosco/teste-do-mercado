@@ -1,10 +1,17 @@
-// ESSA CLASSE FUNCIONA COMO UM OBJETO GLOBAL//
+// ESSA 'CLASSE' FUNCIONA COMO UM OBJETO GLOBAL//
 
 /* ==== PROPIEDADES =====
    -- .....
       ==> ......
 
   ===== MÉTODOS =====
+    -- valorVazio()
+       ==> ESSE MÉTODO RECEBE UM PARÂMETRO. RETORNA 'TRUE' SE O PARÂMETRO FOR NULO E 'FALSE' SE NÃO FOR.
+
+    -- valorNumerico()
+       ==> ESSE MÉTODO RECEBE UM PARÂMETRO. RETORNA 'TRUE' SE O PARÂMETRO FOR UM NÚMERO E SE NÃO FOR ZERO.
+           RETORNA 'FALSE' SE FOR ZERO OU SE NÃO FOR UM NÚMERO.
+
     -- validarNegoc()
        ==> ESSE MÉTODO SERÁ CHAMADO PARA VALIDAR UMA NOVA ENTRADA DE NEGOCIAÇÃO E IRÁ ITERAR SOBRE OS CAMPOS DE UM FORMULÁRIO
            ** TRẼS CAMPOS SÓ ACEITAM NÚMEROS:  'CÓDIGO DA MERCADORIA', 'QUANTIDADE DA MERCADORIA', 'PREÇO DA MERCADORIA'.
@@ -32,17 +39,23 @@
           UMA NOVA NEGOCIAÇÃO
 */
 var NovaNegoc = {
+  valorVazio     : function(valor){
+                      if(valor.length) return false;                  // SE O VALOR FOR IGUAL A ZERO A FUNÇÃO RETORNA FALSA//
+                      return true;                                    // SE NÃO RETORNA VERDADEIRA//
+                   },
+  valorNumerico  : function(valor){
+                        if(!isNaN(valor) && valor.length) return true; // SE AS DUAS CONDIÇÕES FOREM ATENDIDAS, A FUNÇÃO RETORNA 'VERDADEIRA'//
+                          return false;                                // SE NÃO A FUNÇÃO RETORNA 'FALSA'//
+                   },
   validarNegoc   : function(){
                       var dadosValidos = true,                                        //ESSA VARIÁVEL SERVE PARA CONTROLAR O STATUS DA VALIDAÇÃO//
                           msgRetorno   = "",                                          //MENSAGEM PARA EXPLICAR STATUS DA VALIDAÇÃO;
-                                $modal = $("main").children("#modal_nova_negoc"),     //SELECIONA O MODAL DE UMA NOVA NEGOCIAÇÃO//
                                 $form  = $("#form_nova_negoc"),                       //SELECIONA O FORMULÁRIO//
-                       dadosFornecidos = [];
-
+                                  that = this;                                        //ARMAZENA A REFERÊNCIA 'this' PARA A CLASSE. CASO SEJA PRECISO REFERENCIAR ELA , MAS DENTRO DE UMA FUNÇÃO ANINHADA, USAR 'that'//
                       // ====> EU USO .serialize() ou .serializeArray() MAS ESTAVA DANDO ERRO E PRA NÃO ME ATRASAR FIZ DE OUTRO JEITO//
                       // ====> var dadosFornecidos = $("#form_nova_negoc").serializeArray();
 
-                      $("main").find("form").find(".form-control").each(function(){   //SELECIONA O <form>, BUSCA CADA ITEM COM A CLASSE .form-control//
+                      $form.find(".form-control").each(function(){   //BUSCA CADA ITEM DE <form> COM A CLASSE .form-control//
                         //PARA CADA UM DELES//
                        var $campo = $(this),                  //ARMAZENA O ITEM COM A CLASSE .form-control EM UM OBJETO JQUERY//
                            valor  = $campo.val(),             //ARMAZENA O VALOR DO CAMPO//
@@ -50,20 +63,27 @@ var NovaNegoc = {
                         nomeEtiqu = (nomeAtrib === "preco_mercadoria") ? $campo.parent().prev().attr("data-name") : $campo.prev().attr("data-name");      //ARMAZENA O NOME REAL DO CAMPO, O TEXTO QUE ESTIVER DENTRO DE <label>//
                                   //===> POR CAUSA DA ESTRUTURA HTML DESSE CAMPO, NÃO EXISTE UMA <label> ANTES DELE. ENTÃO É PRECISO SUBIR PARA SEU ANCESTRAL <div class="input-group"> E DEPOIS BUSCAR A <label>//
 
-                           //SE ALGUM CAMPO ESTIVER VAZIO//
-                            if(!valor.length){
-                              dadosValidos = false;                                           //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
-                              msgRetorno   = "<p>Por favor, preencha todos os campos</p>";    //EXPLICAR O MOTIVO DE ERRO//
-                            }
-                            //VERIFICA SE OS CAMPOS EM QUE SÓ SÃO ACEITOS NÚMEROS ESTÃO REALMENTE COM NÚMEROS//
+
+                            //*** VERIFICA SE OS CAMPOS EM QUE SÓ SÃO ACEITOS NÚMEROS ESTÃO REALMENTE COM NÚMEROS ***//
                             //CAMPOS:  'CÓDIGO DA MERCADORIA', 'QUANTIDADE DA MERCADORIA', 'PREÇO DA MERCADORIA'//
                             if(nomeAtrib === "codigo_mercadoria" || nomeAtrib === "qtd_mercadoria" || nomeAtrib === "preco_mercadoria"){
-                              if(!$.isNumeric(valor)){
-                                // console.log(nomeAtrib + " nao é um numero");
-                                dadosValidos = false;                                                                     //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
-                                msgRetorno   = "<p>Por favor, preencha o campo \"" + nomeEtiqu + "\" com números.</p>";   //EXPLICAR O MOTIVO DE ERRO//
+                              // if(!$.isNumeric(valor)){                 //======> SOMENTE COM jQuery//
+                              if(!that.valorNumerico(valor)){             //======> SOMENTE COM JAVASCRIPT//
+                                console.log("aqui");
+                                dadosValidos = false;                                                                           //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
+                                msgRetorno   = "<p>Por favor, preencha o campo \"" + nomeEtiqu + "\" somente com números.</p>"; //EXPLICA O MOTIVO DE ERRO//
+                                return false;                                                                                   // ENCERRA O CÓDIGO//
                               }
                             }
+
+                           //*** SE ALGUM CAMPO ESTIVER VAZIO***//
+                            // if(NovaNegoc.valorVazio(valor)){ ======> //CASO PREFIRA USAR O NOME INTEIRO DA 'CLASSE'//
+                            else if(that.valorVazio(valor)){
+                              dadosValidos = false;                                           //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
+                              msgRetorno   = "<p>Por favor, preencha todos os campos</p>";    //EXPLICA O MOTIVO DE ERRO//
+                              return false;                                                   // ENCERRA O CÓDIGO//
+                            }
+
 
                             //VALIDAR A QUANTIDADE DE CARACTERES//
                       });

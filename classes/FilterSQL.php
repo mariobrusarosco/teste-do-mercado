@@ -3,7 +3,7 @@ class FilterSQL{
   private     $conditions = array();
   protected   $booleanOperator;
   private     $strFilter;
-  
+
   function __construct(ConditionSQL $condition = null){
     //IF YOU CREATE A FILTER WITHOUT PASSING A CONDITION TO IT... NOTHING SHOULD HAPPEN//
     ($condition != null) ? $this->strFilter = $condition->finishCondition() : false;

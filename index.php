@@ -40,12 +40,12 @@
 
               <div class="form-group">
                 <label data-name="Código Mercadoria" for="codigo_mercadoria_form">Código Mercadoria</label>
-                <input id="codigo_mercadoria_form" name="codigo_mercadoria" type="number" class="form-control" placeholder="Digite o Código da Mercadoria" required="required">
+                <input id="codigo_mercadoria_form" name="codigo_mercadoria" type="number" class="form-control" placeholder="Digite o Código da Mercadoria">
               </div>
 
               <div class="form-group">
                 <label data-name="Tipo Mercadoria" for="tipo_mercadoria_form">Tipo Mercadoria</label>
-                <select id="tipo_mercadoria_form" name="tipo_mercadoria" type="number" class="form-control" required="required">
+                <select id="tipo_mercadoria_form" name="tipo_mercadoria" class="form-control" required="required">
                   <option class="" value="tipo1" selected>Tipo 01</option>
                   <option class="" value="tipo2">Tipo 02</option>
                   <option class="" value="tipo3">Tipo 03</option>
