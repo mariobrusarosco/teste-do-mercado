@@ -11,6 +11,14 @@
     -- campoVazio()
        ==> ESSE MÉTODO RECEBE UM PARÂMETRO. RETORNA 'TRUE' SE O PARÂMETRO ESTIVER VAZIO E 'FALSE' SE NÃO ESTIVER.
 
+    -- campoComprimento()
+       ==> ESSE MÉTODO RECEBE DOIS PARÂMETROS.
+        * O NOME DO CAMPO
+        * O VALOR DO CAMPO
+       ==> DE ACORDO COM O NOME DO CAMPO ELE VERIFICA UMA DETERMINADA CONDIÇÃO E RETORNA UM ARRAY:
+        * CASO A VALIDAÇÃO OCORRA: [true]
+        * CASO A VALIDAÇÃO NÃO OCORRA: [false,número máximo de caracteres permitidos, número de caracteres digitados]
+
     -- validarNegoc()
        ==> ESSE MÉTODO SERÁ CHAMADO PARA VALIDAR UMA NOVA ENTRADA DE NEGOCIAÇÃO E IRÁ ITERAR SOBRE OS CAMPOS DE UM FORMULÁRIO
            ** TRẼS CAMPOS SÓ ACEITAM NÚMEROS:  'CÓDIGO DA MERCADORIA', 'QUANTIDADE DA MERCADORIA', 'PREÇO DA MERCADORIA'.
@@ -47,8 +55,11 @@ var NovaNegoc = {
                       return false;                  // SE NÃO, O CAMPO NÃO É CONSIDERADO 'VAZIO'//
                    },
   campoComprimento : function(campo,valor){
+                          // * VERIFICA O NOME DO CAMPO E PARA CADA CASO ESPECÍFICO.
+                          // * VERIFICA SE O NÚMERO MÁXIMO PERMITIDO DE CARACTERES FOI ATINGIDO
+                          // * RETORNA UM ARRAY COM TRÊS ÍTENS: [booleano falso,número máximo de caracteres,número caracteres digitados]
+                          // * SE TODOS OS CAMPOS ESTIVEREM OK, UM ARRAY COM UM ÚNICO ITEM É RETORNADO: [booleano verdadeiro]
                         switch(campo){
-
                           case "codigo_mercadoria":
                           case "preco_mercadoria":
                             if(valor.length > 10) return [false,"10",valor.length];
@@ -93,7 +104,7 @@ var NovaNegoc = {
                             dadosValidos = false;                                                                        //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
                             return false;                                                                                //ENCERRA A FUNÇÃO CALLBACK DE '$form.find(".form-control").each//
                           }
-                          //VERIFICA A QUANTIDADE DE CARACTERES (construindo!!!)//
+                          //VERIFICA A QUANTIDADE DE CARACTERES//
                           else{
                             // ARMAZENA UM ARRAY RETORNADO DA FUNÇÃO campoComprimento.
                               //[0] É UM VALOR BOOLEANO
@@ -102,9 +113,9 @@ var NovaNegoc = {
 
                             if(!validComp[0]){                                                                                     //SE O COMPRIMENTO DO VALOR DO CAMPO NÃO FOR VÁLIDO...//
                               msgRetorno   = "<p>O campo \"" + nomeEtiqu + "\" aceita no máximo " + validComp[1] + " dígitos. \
-                                              Você digitou " + validComp[2] +".</p>"; //EXPLICA O MOTIVO DE ERRO//
-                              dadosValidos = false;                                                                                           //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
-                              return false;                                                                                                   //ENCERRA A FUNÇÃO CALLBACK DE '$form.find(".form-control").each//
+                                              Você digitou " + validComp[2] +".</p>";                                             //EXPLICA O MOTIVO DE ERRO//
+                              dadosValidos = false;                                                                               //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
+                              return false;                                                                                       //ENCERRA A FUNÇÃO CALLBACK DE '$form.find(".form-control").each//
                             }
                           }
                       });
@@ -126,7 +137,7 @@ var NovaNegoc = {
                       //SE FOR 'false' OS DADOS NÃO! SERÃO ACEITOS//
                         //INSERE NO MODAL UM AVISO DE ERRO NA INSERÇÃO, ANTES DO BOTÃO DE SALVAR E FECHAR//
                         $("<div class='alert alert-danger text-center'>" + validacao[1]+ "</div>").insertBefore($node.prev());
-                        return false; //ENCERRA O CÓDIGO//
+                        return false; //ENCERRA A FUNÇÃO salvarNegoc//
 
                     }else{  //SE FOR 'true' OS DADOS SERÃO ACEITOS//
 
