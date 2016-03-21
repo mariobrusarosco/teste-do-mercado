@@ -1,5 +1,3 @@
-
-
 //CARREGAMENTO DO DOM//
 window.onload = function(){
 

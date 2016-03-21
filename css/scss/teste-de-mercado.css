@@ -1,3 +1,7 @@
+@charset "UTF-8";
+/*
+ELEMENTOS GLOBAIS
+*/
 .modal_alertas .modal-header, .modal_alertas .modal-footer {
   border: none; }
 
@@ -8,19 +12,31 @@ header .nav div {
 header .nav button {
   margin-top: 1em; }
 
+/*
+ÁREA DO MODAL DE INSERÇÃO DE NOVA NEGOCIAÇÃO
+*/
 #modal_nova_negoc .modal-footer {
   margin-top: -0.9em; }
 #modal_nova_negoc .alert {
   margin-bottom: 0.7em;
   padding: 0.85em; }
 
+/*
+ÁREA DA LISTA DE NEGOCIAÇÕES
+*/
 #area_negoc {
   margin-top: 1em;
   margin-left: 0.2em; }
 
+/*
+MEDIA QUERY DA ÁREA DA LISTA DE NEGOCIAÇÕES, EM DISPOSITIVOS COM WIDTH A PARTIR DE 769px
+*/
 @media SCREEN and (min-width: 769px) {
   #area_negoc {
     margin-left: 0em; } }
+/*
+TABELA DE NEGOCIAÇÕES
+ */
 #tabela_negoc {
   color: white; }
   #tabela_negoc thead {

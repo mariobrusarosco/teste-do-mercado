@@ -1,7 +1,9 @@
 //IMPORTAR AS VARIÁVEIS SASS//
 @import "variaveis";
 
-// ****  ELEMENTOS GLOBAIS ***** //
+/*
+ELEMENTOS GLOBAIS
+*/
 
   //MODAL USADO PARA ALERTAS//
   .modal_alertas{
@@ -10,8 +12,6 @@
       border: none;
     }
   }
-
-// ****  ELEMENTOS GLOBAIS ***** //
 
 
 header{
@@ -35,7 +35,10 @@ header{
   }
 }
 
-//*** ÁREA DO MODAL DE INSERÇÃO DE NOVA NEGOCIAÇÃO ***//
+/*
+ÁREA DO MODAL DE INSERÇÃO DE NOVA NEGOCIAÇÃO
+*/
+
 #modal_nova_negoc{
   //DIMINUI A MARGIN NO TOPO DO RODAPÉ DO MODAL PARA MELHOR VISUALIZAÇÃO//
   .modal-footer{
@@ -48,9 +51,17 @@ header{
   }
 }
 
-//*** ÁREA DA LISTA DE NEGOCIAÇÕES ***//
+/*
+ÁREA DA LISTA DE NEGOCIAÇÕES
+*/
 @import "area-negoc";
-@import "area-negoc-768-up";//MEDIA QUERY DA ÁREA DA LISTA DE NEGOCIAÇÕES, EM DISPOSITIVOS COM WIDTH A PARTIR DE 769px//
 
-//*** TABELA DE NEGOCIAÇÕES ***//
+/*
+MEDIA QUERY DA ÁREA DA LISTA DE NEGOCIAÇÕES, EM DISPOSITIVOS COM WIDTH A PARTIR DE 769px
+*/
+@import "area-negoc-768-up";
+
+/*
+TABELA DE NEGOCIAÇÕES
+ */
 @import "tabela-negoc";
