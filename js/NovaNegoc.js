@@ -64,6 +64,8 @@ var NovaNegoc = {
                                 msgRetorno   = "<p>Por favor, preencha o campo \"" + nomeEtiqu + "\" com números.</p>";   //EXPLICAR O MOTIVO DE ERRO//
                               }
                             }
+
+                            //VALIDAR A QUANTIDADE DE CARACTERES//
                       });
 
                       return [dadosValidos,msgRetorno];  //UM ARRAY COM UM VALOR BOOLEANO E UMA MENSAGEM EXPLICANDO O STATUS DA VALIDAÇÃO//
