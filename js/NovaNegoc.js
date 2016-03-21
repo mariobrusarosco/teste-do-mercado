@@ -46,6 +46,24 @@ var NovaNegoc = {
                       if(!valor.length) return true; // SE O USUÁRIO NÃO DIGITOU NADA NO CAMPO, O CAMPO SERÁ CONSIDERADO 'VAZIO' NÃO VÁLIDO//
                       return false;                  // SE NÃO, O CAMPO NÃO É CONSIDERADO 'VAZIO'//
                    },
+  campoComprimento : function(campo,valor){
+                        switch(campo){
+
+                          case "codigo_mercadoria":
+                          case "preco_mercadoria":
+                            if(valor.length > 10) return [false,"10",valor.length];
+                            break;
+
+                          case "nome_mercadoria":
+                            if(valor.length > 15)return [false,"15",valor.length];
+                            break;
+
+                          case "qtd_mercadoria":
+                            if(valor.length > 5)return [false,"5",valor.length];
+                            break;
+                        }
+                        return [true];
+                    },
   validarNegoc   : function(){
                       var dadosValidos = true,                                        //ESSA VARIÁVEL SERVE PARA CONTROLAR O STATUS DA VALIDAÇÃO//
                           msgRetorno   = "",                                          //MENSAGEM PARA EXPLICAR STATUS DA VALIDAÇÃO;
@@ -73,9 +91,21 @@ var NovaNegoc = {
                             msgRetorno   = "<p>Por favor, não insira somente zeros no campo \"" + nomeEtiqu + "\".</p>"; //EXPLICA O MOTIVO DE ERRO//
                             dadosValidos = false;                                                                        //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
                             return false;                                                                                //ENCERRA A FUNÇÃO CALLBACK DE '$form.find(".form-control").each//
-
                           }
                           //VERIFICA A QUANTIDADE DE CARACTERES (construindo!!!)//
+                          else{
+                            // ARMAZENA UM ARRAY RETORNADO DA FUNÇÃO campoComprimento.
+                              //[0] É UM VALOR BOOLEANO
+                              //[1] É O NÚMERO MÁXIMO PERMITIDO DE CARACTERES PARA ESSE CAMPO
+                            var validComp = that.campoComprimento(nomeAtrib,valor);
+
+                            if(!validComp[0]){                                                                                     //SE O COMPRIMENTO DO VALOR DO CAMPO NÃO FOR VÁLIDO...//
+                              msgRetorno   = "<p>O campo \"" + nomeEtiqu + "\" aceita no máximo " + validComp[1] + " dígitos. \
+                                              Você digitou " + validComp[2] +".</p>"; //EXPLICA O MOTIVO DE ERRO//
+                              dadosValidos = false;                                                                                           //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
+                              return false;                                                                                                   //ENCERRA A FUNÇÃO CALLBACK DE '$form.find(".form-control").each//
+                            }
+                          }
                       });
 
                       return [dadosValidos,msgRetorno];  //UM ARRAY COM UM VALOR BOOLEANO E UMA MENSAGEM EXPLICANDO O STATUS DA VALIDAÇÃO//
