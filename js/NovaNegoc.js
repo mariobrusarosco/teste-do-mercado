@@ -5,12 +5,11 @@
       ==> ......
 
   ===== MÉTODOS =====
-    -- valorVazio()
-       ==> ESSE MÉTODO RECEBE UM PARÂMETRO. RETORNA 'TRUE' SE O PARÂMETRO FOR NULO E 'FALSE' SE NÃO FOR.
+    -- campoZerado()
+       ==> ESSE MÉTODO RECEBE UM PARÂMETRO. RETORNA 'TRUE' SE O PARÂMETRO FOR MENOR DO QUE ZERO E 'FALSE' SE NÃO FOR.
 
-    -- valorNumerico()
-       ==> ESSE MÉTODO RECEBE UM PARÂMETRO. RETORNA 'TRUE' SE O PARÂMETRO FOR UM NÚMERO E SE NÃO FOR ZERO.
-           RETORNA 'FALSE' SE FOR ZERO OU SE NÃO FOR UM NÚMERO.
+    -- campoVazio()
+       ==> ESSE MÉTODO RECEBE UM PARÂMETRO. RETORNA 'TRUE' SE O PARÂMETRO ESTIVER VAZIO E 'FALSE' SE NÃO ESTIVER.
 
     -- validarNegoc()
        ==> ESSE MÉTODO SERÁ CHAMADO PARA VALIDAR UMA NOVA ENTRADA DE NEGOCIAÇÃO E IRÁ ITERAR SOBRE OS CAMPOS DE UM FORMULÁRIO
@@ -39,13 +38,13 @@
           UMA NOVA NEGOCIAÇÃO
 */
 var NovaNegoc = {
-  valorVazio     : function(valor){
-                      if(valor.length) return false;                  // SE O VALOR FOR IGUAL A ZERO A FUNÇÃO RETORNA FALSA//
-                      return true;                                    // SE NÃO RETORNA VERDADEIRA//
-                   },
-  valorNumerico  : function(valor){
-                        if(!isNaN(valor) && valor.length) return true; // SE AS DUAS CONDIÇÕES FOREM ATENDIDAS, A FUNÇÃO RETORNA 'VERDADEIRA'//
-                          return false;                                // SE NÃO A FUNÇÃO RETORNA 'FALSA'//
+  campoZerado    : function(valor){
+                      if(valor <= 0) return true;    // SE O USUÁRIO DIGITAR SOMENTE ZEROS, O CAMPO SERÁ CONSIDERADO 'ZERADO', E NÃO VALIDO//
+                      return false;                  // SE NÃO, O CAMPO NÃO É CONSIDERADO 'ZERADO'//
+                    },
+  campoVazio     : function(valor){
+                      if(!valor.length) return true; // SE O USUÁRIO NÃO DIGITOU NADA NO CAMPO, O CAMPO SERÁ CONSIDERADO 'VAZIO' NÃO VÁLIDO//
+                      return false;                  // SE NÃO, O CAMPO NÃO É CONSIDERADO 'VAZIO'//
                    },
   validarNegoc   : function(){
                       var dadosValidos = true,                                        //ESSA VARIÁVEL SERVE PARA CONTROLAR O STATUS DA VALIDAÇÃO//
@@ -63,29 +62,20 @@ var NovaNegoc = {
                         nomeEtiqu = (nomeAtrib === "preco_mercadoria") ? $campo.parent().prev().attr("data-name") : $campo.prev().attr("data-name");      //ARMAZENA O NOME REAL DO CAMPO, O TEXTO QUE ESTIVER DENTRO DE <label>//
                                   //===> POR CAUSA DA ESTRUTURA HTML DESSE CAMPO, NÃO EXISTE UMA <label> ANTES DELE. ENTÃO É PRECISO SUBIR PARA SEU ANCESTRAL <div class="input-group"> E DEPOIS BUSCAR A <label>//
 
-
-                          //*** VERIFICA SE OS CAMPOS EM QUE SÓ SÃO ACEITOS NÚMEROS ESTÃO REALMENTE COM NÚMEROS ***//
-                          //CAMPOS:  'CÓDIGO DA MERCADORIA', 'QUANTIDADE DA MERCADORIA', 'PREÇO DA MERCADORIA'//
-                          if(nomeAtrib === "codigo_mercadoria" || nomeAtrib === "qtd_mercadoria" || nomeAtrib === "preco_mercadoria"){
-                            // if(!$.isNumeric(valor)){                 //======> SOMENTE COM jQuery//
-                            if(!that.valorNumerico(valor)){             //======> SOMENTE COM JAVASCRIPT//
-                              console.log("aqui");
-                              dadosValidos = false;                                                                           //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
-                              msgRetorno   = "<p>Por favor, preencha o campo \"" + nomeEtiqu + "\" somente com números.</p>"; //EXPLICA O MOTIVO DE ERRO//
-                              return false;                                                                                   // ENCERRA O CÓDIGO//
-                            }
+                          // VERIFICA SE O CAMPO ESTÁ VAZIO //
+                          if(that.campoVazio(valor)){
+                            msgRetorno   = "<p>Por favor, preencha o campo \"" + nomeEtiqu + "\".</p>"; //EXPLICA O MOTIVO DE ERRO//
+                            dadosValidos = false;                                                       //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
+                            return false;                                                               //ENCERRA A FUNÇÃO CALLBACK DE '$form.find(".form-control").each//
                           }
+                          // VERIFICA SE O CAMPO ESTÁ PREENCHIDO SOMENTE COM ZEROS //
+                          else if(that.campoZerado(valor)){
+                            msgRetorno   = "<p>Por favor, não insira somente zeros no campo \"" + nomeEtiqu + "\".</p>"; //EXPLICA O MOTIVO DE ERRO//
+                            dadosValidos = false;                                                                        //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
+                            return false;                                                                                //ENCERRA A FUNÇÃO CALLBACK DE '$form.find(".form-control").each//
 
-                           //*** SE ALGUM CAMPO ESTIVER VAZIO***//
-                            // if(NovaNegoc.valorVazio(valor)){ ======> //CASO PREFIRA USAR O NOME INTEIRO DA 'CLASSE'//
-                            else if(that.valorVazio(valor)){
-                              dadosValidos = false;                                           //A ENTRADA NÃO DEVE SER ACEITA. STATUS ALTERADO PARA 'FALSO'//
-                              msgRetorno   = "<p>Por favor, preencha todos os campos</p>";    //EXPLICA O MOTIVO DE ERRO//
-                              return false;                                                   // ENCERRA O CÓDIGO//
-                            }
-
-
-                            //VALIDAR A QUANTIDADE DE CARACTERES//
+                          }
+                          //VERIFICA A QUANTIDADE DE CARACTERES (construindo!!!)//
                       });
 
                       return [dadosValidos,msgRetorno];  //UM ARRAY COM UM VALOR BOOLEANO E UMA MENSAGEM EXPLICANDO O STATUS DA VALIDAÇÃO//
@@ -147,6 +137,7 @@ var NovaNegoc = {
                             $modal.modal("hide");                  //ESCONDE O MODAL DE NOVA NEGOCIAÇÃO PARA EXIBIR UMA MENSAGEM DE SUCESSO AO USUÁRIO//
                             $modalAlertas.modal("show");           //EXIBE O MODAL DE ALERTAS AVISANDO QUE HOUVE SUCESSO NA INSERÇÃO//
                             ListNegoc.carregarLista();             //APÓS SALVAR UMA NOVA NEGOCIAÇÃO... CARREGUE A LISTA COM TODAS AS ANTERIORES E A NOVA//
+                            //O BOTÃO PARA ATUALIZAR AS NEGOCIAÇÕES AGORA É REDUNDANTE E PODE SER RETIRADO DA PÁGINA!!!//
                     }//FIM DE 'else'//
                   },
   execHandlers  : function(){

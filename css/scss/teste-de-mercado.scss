@@ -35,7 +35,18 @@ header{
   }
 }
 
+//*** ÁREA DO MODAL DE INSERÇÃO DE NOVA NEGOCIAÇÃO ***//
+#modal_nova_negoc{
+  //DIMINUI A MARGIN NO TOPO DO RODAPÉ DO MODAL PARA MELHOR VISUALIZAÇÃO//
+  .modal-footer{
+    margin-top: -0.9em;
+  }
 
+  .alert{
+    margin-bottom: 0.7em;
+    padding: 0.85em;
+  }
+}
 
 //*** ÁREA DA LISTA DE NEGOCIAÇÕES ***//
 

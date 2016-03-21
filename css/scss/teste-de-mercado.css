@@ -8,4 +8,10 @@ header .nav div {
 header .nav button {
   margin-top: 1em; }
 
+#modal_nova_negoc .modal-footer {
+  margin-top: -0.9em; }
+#modal_nova_negoc .alert {
+  margin-bottom: 0.7em;
+  padding: 0.85em; }
+
 /*# sourceMappingURL=teste-de-mercado.css.map */
